@@ -1,0 +1,98 @@
+Neural Network
+	One Input Layer to Many Hidden Layers to Output Layer
+
+	The Neuron
+	The Activation Function
+	How do Neural Networks work?
+	How do Neural Networks learn?
+	Gradient Descent
+	Stochastic Gradient Descent
+	Backpropagation
+
+The Neuron:
+	Many input values(independent variables) to Neuron for output value.
+
+	Weight is for neuron learn from input values
+	Activation functions(Sum(weight(i)*input(i))): \Phi(sum_i^m(w(i)x(i)))
+	Determine the output value
+
+The Activation Function
+	https://www.learnopencv.com/understanding-feedforward-neural-networks/
+	https://www.learnopencv.com/understanding-activation-functions-in-deep-learning/
+	https://brilliant.org/wiki/artificial-neural-network/#training-the-model
+	Threshold Function:			\phi(x) = {1 if x >= 0, 0 if x < 0}
+	Sigmoid:					\phi(x) = 1/(1+e^-x)
+	Rectifier:					\phi(x) = max(x, 0)
+	Hyperbolic Tangent(tanh):	\phi(x) = (1-e^-2x)/(1+e^-2x)
+	Weight:						\Phi(x) = weight + (learning rate * to error * from output) + momentum * previous weight
+	
+How do NNs Work?
+	Simple Approach: 	Input Layers to Output Layer
+	NN Approach:		Input Layers -> Hidden Layers -> Output Layer
+
+How do NNs Learn?
+	Compare output value to actual value
+	Cost Function:		C = 1/2(y\hat - y)^2
+	Input values -> Neon -> Output Value -> Actual Value -> Output Value -> Neon -> Weights(updates)
+	EX:	
+		Row Id: 1, Study Hrs: 12, Sleep Hrs: 6, Quiz: 78%, Exam: 93%
+	
+	Backpropagation:	
+		Feed every single data to the neural network 
+		Find out cost function
+		Do this whole process again
+		Goal: Minimize the cost function and get soon as you found a minimum of the cost
+		Mean: Weights have been adjusted and found the optimal weights for the data set that training on
+
+Gradient Descent
+	Look at the cost function at that point
+	Differentiate find out what the slope is in that specific point
+	Find out if the slope is positive or negative
+	If the slope is negative means that going down hill if you are in the left then go right
+	If the slope is positive means that going down hill if you are in the right then go left
+
+Stochastic Gradient Descent
+	Batch gradient Descent:			Adjusted Weights after batch every raw of data
+	Stochastic Gradient Descent:	Adjusted weights in every batch raw of data
+	Avoid local minimum in the cost function
+
+Backpropgation
+	https://brilliant.org/wiki/backpropagation/
+	Forward Propagation: 
+		Enter information into the input layer
+		Propagate forward to get output values
+		Compare those value to the actual values in our training set
+		Calculate the errors
+	
+	Backpropagation
+		Errors are back propagated though the network in the opposite direction
+		Allows us to train the network by adjusting the weights
+
+	Backpropagation is an advanced algorithm driven by very interesting and sophisticated mathematics which allows us to adjust the weights
+	All of them at the same time, all weights are adjusted simultaneously
+	The huge advantage of backpropagation is a key thing to remember is that during the process of back propagation simply because of the way the algorithm is structured you are able to adjust all the way at the same time so you basically know which part of the error each of you weights in the neural network is responsible for. That is the key fundamental underlying principle of back propagation.
+
+	Training the ANN with Stochastic Gradient Descent
+		Step 1:	Randomly initialize the weights to small numbers close to 0 (but not 0).
+		Step 2:	Input the first observation of your data set in the input layer, each feature in one input node.
+		Step 3:	Forward-Propagation: from left to right, the neurons are activated in a way that the impact of each neuron's activation is limited by the weights. Propagate the activations until getting the predicted result y.
+		Step 4:	Compare the predicated result to the actual result. Measure the generated error.
+		Step 5:	Back-Propagation: from right to left, the error is back-propagated. Update the weights according to how much they are responsible for the error. The learning rate decides by how much we update the weights.
+		Step 6:	Repeat Steps 1 to 5 and update the weights after each observation (Reinforcement Learning). Or: Repeat Steps 1 to 5 but update the weights only after a batch of observations (Batch Learning)
+		Step 7:	When the whole training set passed through the ANN, that makes an epoch. Re-do more epochs
+
+
+Evaluating, Improving and Tuning the ANN
+	The Bias-Variance Tradeoff
+		High Bias Low Variance
+		High Bias High Variance
+		Low Bias Low Variance
+		Low Bias High Variance 
+
+	K-Fold Cross Validation
+		Dataset: Training Set and Test Set
+		Training Set:
+			10 iterations X 10 folds
+			test fold
+
+
